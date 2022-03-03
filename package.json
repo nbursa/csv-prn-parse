@@ -9,10 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "csv": "^6.0.5",
-    "fs": "^0.0.1-security",
-    "vue": "^3.2.13",
-    "vue-papa-parse": "^3.0.4"
+    "vue": "^3.2.13"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
