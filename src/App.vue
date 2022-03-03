@@ -1,7 +1,7 @@
 <template>
   <main>
     <h1>CSV</h1>
-    <CsvLoader :msg="'prop content'" />
+    <CsvLoader />
   </main>
 </template>
 
@@ -13,9 +13,6 @@ export default defineComponent({
   name: 'App',
   components: {
     CsvLoader
-  },
-  mounted () {
-    console.log('mounted csv component: ', this)
   }
 })
 </script>

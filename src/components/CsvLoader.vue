@@ -29,7 +29,7 @@ export default defineComponent({
         }).join().split(',')
         return Object.fromEntries(header.map((h: any, i: any) => [h, fields[i]]))
       })
-      console.log('output: ', output)
+      // console.log('output: ', output)
       return output
     }
   },
