@@ -42,6 +42,7 @@ export default defineComponent({
           }).join().split(',')
         } else {
           fields = line && line.split(',')
+          console.log('fields: ', fields)
         }
         return Object.fromEntries(header.map((h: any, i: any) => [h, fields[i]]))
       })

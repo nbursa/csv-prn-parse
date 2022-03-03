@@ -1,18 +1,18 @@
 <template>
   <main>
     <h1>CSV viewer</h1>
-    <CsvLoader />
+    <CsvPrnLoader />
   </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import CsvLoader from './components/CsvLoader.vue'
+import CsvPrnLoader from './components/CsvPrnLoader.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    CsvLoader
+    CsvPrnLoader
   }
 })
 </script>
