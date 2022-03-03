@@ -1,7 +1,16 @@
 <template>
   <div class="csv-loader">
-    <div class="row" v-for="(item, index) in jsonFromCsv" :key="index">
-      <span v-for="(val, col) in item" :key="col" :class="`column col-${col}`" >{{ val }}</span>
+    <div class="toggle">
+      <h2>{{`Displaying ${showHtml ? 'HTML' : 'JSON'} view`}}</h2>
+      <button @click="togglePreview">{{`Show ${showHtml ? 'JSON' : 'HTML'}`}}</button>
+    </div>
+    <div v-if="showHtml">
+      <div class="row" v-for="(item, index) in jsonFromCsv" :key="index">
+        <span v-for="(val, col) in item" :key="col" :class="`column col-${col}`" >{{ val }}</span>
+      </div>
+    </div>
+    <div v-else>
+      <pre>{{ JSON.stringify(jsonFromCsv, null, 2) }}</pre>
     </div>
   </div>
 </template>
@@ -16,6 +25,7 @@ export default defineComponent({
   },
   data () {
     return {
+      showHtml: true,
       content: ''
     }
   },
@@ -57,11 +67,19 @@ export default defineComponent({
       .then(response => response.blob())
       .then(blob => blob.text().then(res => { this.content = res }).catch(err => console.error('blob error: ', err)))
       .catch(err => console.error(err))
+  },
+  methods: {
+    togglePreview () {
+      this.showHtml = !this.showHtml
+    }
   }
 })
 </script>
 
 <style scoped lang='scss'>
+.toggle {
+  margin-bottom: 1rem;
+}
 .row {
   display: flex;
   align-items: center;
@@ -70,5 +88,8 @@ export default defineComponent({
     width: calc(100% / 6);
     text-align: left;
   }
+}
+pre {
+  text-align: left;
 }
 </style>

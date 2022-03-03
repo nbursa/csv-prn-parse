@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h1>CSV</h1>
+    <h1>CSV viewer</h1>
     <CsvLoader />
   </main>
 </template>
