@@ -2,7 +2,7 @@
   <div class="csv-loader">
     <div>Load <button @click="loadFile('csv')">CSV</button> or <button @click="loadFile('prn')">PRN</button> file</div>
     <div class="toggle">
-      <h2>{{`Displaying ${showHtml ? 'HTML' : 'JSON'} view`}}</h2>
+      <h2>{{`Displaying .${fileFormat} file, ${showHtml ? 'HTML' : 'JSON'} view`}}</h2>
       <button @click="togglePreview">{{`Show ${showHtml ? 'JSON' : 'HTML'}`}}</button>
     </div>
     <div v-if="showHtml">
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div v-else>
-      <pre>{{ JSON.stringify(jsonFromFile, null, 2) }}</pre>
+      <pre>{{ parserContent }}</pre>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'CsvLoader',
+  name: 'CsvPrnParser',
   props: {
     msg: String
   },
@@ -32,18 +32,21 @@ export default defineComponent({
     }
   },
   computed: {
+    parserContent () {
+      return JSON.stringify(this.jsonFromFile, null, 2)
+    },
     jsonFromFile () {
       const header = this.content[0].toLowerCase().replaceAll(' ', '_').split(',')
-      const output = this.content.slice(1).map((line: any) => {
-        let fields: any = null
+      const output = this.content.slice(1).map((line: string) => {
+        let fields: string|string[]|null = null
         if (this.fileFormat === 'csv') {
-          fields = line && line.trim().split('"').filter((n: any) => n).map((item: any) => {
+          fields = line && line.trim().split('"').filter((n: string) => n).map((item: string) => {
             return item.replace(',', '')
           }).join().split(',')
         } else {
           fields = line && line.split(',')
         }
-        return Object.fromEntries(header.map((h: any, i: any) => [h, fields[i]]))
+        return Object.fromEntries(header.map((h: string, i: number) => [h, fields?.[i]]))
       })
       return output
     }
@@ -60,7 +63,7 @@ export default defineComponent({
           return new ReadableStream({
             start (controller) {
               return pump()
-              function pump (): any {
+              function pump (): Promise<void> | undefined {
                 return reader?.read().then(({ done, value }) => {
                   if (done) {
                     controller.close()
@@ -80,7 +83,7 @@ export default defineComponent({
           if (type === 'prn') {
             const arr = this.content[0].split(' ')
             const poped = [arr.pop()]
-            const p1 = arr.slice(0, arr.length - 2).filter((n: any) => n)
+            const p1 = arr.slice(0, arr.length - 2).filter((n: string) => n)
             const p2 = arr.slice(arr.length - 2, arr.length)
             const result = [...p1, `${p2[0]} ${p2[1]}`, ...poped]
             this.content[0] = result.join(',')
