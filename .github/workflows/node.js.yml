@@ -38,5 +38,5 @@ jobs:
         username: nenadbur
         # port: ${{ secrets.PORT }}
         key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDA+fDPSliAtehTfr4lU+QcH+zuYWjqr/RWyBBkxJWYox0sM0/nNNTbc56GXrfzvOIJGzeWmMVdIseByBXOK2wuEVlo9c8ybvCaYn17mfKdQkiLH6WPn5y3VKACeZ3bZ7NnSXjeqbtbYjqx0fqO9DpfGKXJYIlFkjwwSiTXVwkhNhh1TglQcTjEqF/MdvET5V+NkharROpVdeh86BwXPh/4Mz5IeJBIvGqcbQHYEfo1C+OUnEb+SJSR0uesCaLMmaRNmc9Mr1wHXu8J3vnJCaOu5CF4Pmb/+Qe10ktuItN+x3mp2iouV0bcHp8uktAqaaMMylIwLFV1g2Cq6XMwuBXtiLvukHTASDMIxByHx7YMMjj1zttaXTKFbnZdwLlwgw7HqbYkLDPjSs0qTJVAJ1/x7fXskufPlZZHIlt5iVGh1w+Z4LfSPFe6WlfFxnSmLmH3tDJZCY9QWgpZmttIIvZkRTSTVcz099MiQ26zJ+4L/a2MiGEUZP739vr1cjWO5+0= nenad@HP-ENVY-UBT
-        source: 'dist/'
+        source: 'dist'
         target: 'test'
