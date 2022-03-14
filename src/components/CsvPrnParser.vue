@@ -14,7 +14,7 @@
         {{ `Show ${showHtml ? 'JSON' : 'HTML'}` }}
       </button>
     </div>
-    <div v-if="showHtml">
+    <div v-if="showHtml" class="data-table">
       <div class="row" v-for="(item, index) in jsonFromFile" :key="index">
         <span
           v-for="(val, col) in item"
