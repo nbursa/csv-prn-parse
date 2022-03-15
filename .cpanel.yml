@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/nenadbur/test_deploy/
-    - /bin/cp -R * $DEPLOYPATH
+  - export DEPLOYPATH=/home/nenadbur/test_deploy/
+  - /bin/cp -R * $DEPLOYPATH
