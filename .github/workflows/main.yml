@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
       - name: Deploy build version to cpanel
+        uses: actions/checkout@v2
       - run: export DEPLOYPATH=/home/nenadbur/test_deploy/
       - run: /bin/cp -R /dist $DEPLOYPATH
