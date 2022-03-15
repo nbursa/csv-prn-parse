@@ -31,8 +31,8 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       # - run: npm test
-      - run: export DEPLOYPATH=/home/nenadbur/DDIST/
-      - run: /bin/cp -R dist/* $DEPLOYPATH
+      - run: export DEPLOYPATH=/home/nenadbur/DIST/
+      - run: /bin/cp -R ~/dist/* $DEPLOYPATH
 
   # deployment:
   #   runs-on: ubuntu-latest
