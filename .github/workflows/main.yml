@@ -37,7 +37,7 @@ jobs:
     # tasks:
       # - export DEPLOYPATH=/home/nenadbur/public_html/distro
       # - /bin/cp -r * $DEPLOYPATH
-
+      - run: sudo chmod -R 755 /home/nenadbur/public_html
       # - run: export DEPLOYPATH=/home/nenadbur/public_html/distro
       - run: sudo mkdir -p /home/nenadbur/public_html/distro
       - run: sudo chmod -R 755 /home/nenadbur/public_html/distro
