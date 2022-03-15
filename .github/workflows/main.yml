@@ -39,9 +39,9 @@ jobs:
       # - /bin/cp -r * $DEPLOYPATH
 
       # - run: export DEPLOYPATH=/home/nenadbur/public_html/distro
-      # - run: sudo mkdir -p /home/nenadbur/public_html/distro
+      - run: sudo mkdir -p /home/nenadbur/public_html/distro
       - run: sudo chmod -R 755 /home/nenadbur/public_html/distro
-      - run: sudo /bin/cp -r "dist" "chmod -R 755 /home/nenadbur/public_html/distro"
+      - run: sudo /bin/cp -r "dist" "/home/nenadbur/public_html/distro"
       # - run: sudo /bin/mkdir -p /home/nenadbur/distro/ && /bin/cp -r dist/* /home/nenadbur/distro/
       # - run: '[[ -d "/home/nenadbur/distro/" ]]'
       # - run: echo /home/nenadbur/public_html/distro/index.html
