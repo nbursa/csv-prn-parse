@@ -12,44 +12,44 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    deployment:
-      tasks:
-        - npm run build
-        - export DEPLOYPATH=/home/example/public_html/
-        - /bin/cp -R dist $DEPLOYPATH/distro
-
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-# jobs:
-#   # This workflow contains a single job called "build"
-#   deploy:
-#     # The type of runner that the job will run on
-#     runs-on: ubuntu-latest
+jobs:
+  deployment:
+    tasks:
+      - npm run build
+      - export DEPLOYPATH=/home/example/public_html/
+      - /bin/cp -R images $DEPLOYPATH
 
-#     # Steps represent a sequence of tasks that will be executed as part of the job
-#     steps:
-#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#       - uses: actions/checkout@v2
-#       - name: Use Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v2
-#         with:
-#           node-version: ${{ matrix.node-version }}
-#       - run: npm ci
-#       - run: npm run build
-#       #  --if-present
-#       # - run: '[[ -d "dist" ]]'
-#       # - run: npm test
-#       # deployment:
-#     # tasks:
-#       # - export DEPLOYPATH=/home/nenadbur/public_html/distro
-#       # - /bin/cp -r * $DEPLOYPATH
-#       - run: sudo chmod -R 755 "home/nenadbur/public_html"
-#       # - run: export DEPLOYPATH=/home/nenadbur/public_html/distro
-#       - run: sudo mkdir -p "home/nenadbur/public_html/distro"
-#       - run: sudo chmod -R 755 "home/nenadbur/public_html/distro"
-#       - run: sudo /bin/cp -r "dist" "home/nenadbur/public_html/distro"
-#       # - run: sudo /bin/mkdir -p /home/nenadbur/distro/ && /bin/cp -r dist/* /home/nenadbur/distro/
-#       # - run: '[[ -d "/home/nenadbur/distro/" ]]'
-#       # - run: echo /home/nenadbur/public_html/distro/index.html
-#       # - run: /bin/cp -RT dist $DEPLOYPATH
+  # This workflow contains a single job called "build"
+  # deploy:
+  #   # The type of runner that the job will run on
+  #   runs-on: ubuntu-latest
+
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:
+  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  #     - uses: actions/checkout@v2
+  #     - name: Use Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - run: npm ci
+  #     - run: npm run build
+  #     #  --if-present
+  #     # - run: '[[ -d "dist" ]]'
+  #     # - run: npm test
+  #     # deployment:
+  #   # tasks:
+  #     # - export DEPLOYPATH=/home/nenadbur/public_html/distro
+  #     # - /bin/cp -r * $DEPLOYPATH
+  #     - run: sudo chmod -R 755 "home/nenadbur/public_html"
+  #     # - run: export DEPLOYPATH=/home/nenadbur/public_html/distro
+  #     - run: sudo mkdir -p "home/nenadbur/public_html/distro"
+  #     - run: sudo chmod -R 755 "home/nenadbur/public_html/distro"
+  #     - run: sudo /bin/cp -r "dist" "/home/nenadbur/public_html/distro"
+      # - run: sudo /bin/mkdir -p /home/nenadbur/distro/ && /bin/cp -r dist/* /home/nenadbur/distro/
+      # - run: '[[ -d "/home/nenadbur/distro/" ]]'
+      # - run: echo /home/nenadbur/public_html/distro/index.html
+      # - run: /bin/cp -RT dist $DEPLOYPATH
 
