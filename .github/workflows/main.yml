@@ -46,9 +46,9 @@ jobs:
       # - run: '[[ -d "/home/nenadbur/distro/" ]]'
       # - run: echo /home/nenadbur/public_html/distro/index.html
       # - run: /bin/cp -RT dist $DEPLOYPATH
-  deployment:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - run: export DEPLOYPATH=/home/nenadbur/public_html/
-      - run: /bin/cp -R dist $DEPLOYPATH/distro
+      - run: /bin/cp -RT dist $DEPLOYPATH/distro
 
