@@ -32,7 +32,7 @@ jobs:
       - run: npm run build --if-present
       # - run: npm test
       # - run: export DEPLOYPATH=/home/nenadbur/DIST
-      - run: sudo mkdir -p /home/nenadbur/DIST
-      - run: sudo /bin/cp -RT dist /home/nenadbur/DIST
+      - run: sudo mkdir -p /home/nenadbur/public_html/DIST
+      - run: sudo /bin/cp -RT dist /home/nenadbur/public_html/DIST
       # - run: /bin/cp -RT dist $DEPLOYPATH
 
