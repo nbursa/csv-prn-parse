@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "sudo /bin/cp -RT dist /home/nenadbur/public_html/distro",
+    "deploy": "/bin/cp -r dist /home/nenadbur/public_html/distro",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
