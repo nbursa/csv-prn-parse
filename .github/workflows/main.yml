@@ -47,8 +47,8 @@ jobs:
       # - run: echo /home/nenadbur/public_html/distro/index.html
       # - run: /bin/cp -RT dist $DEPLOYPATH
   deployment:
-    # steps:
-    tasks:
-      - export DEPLOYPATH=/home/nenadbur/public_html/
-      - /bin/cp -R dist $DEPLOYPATH/distro
+    steps:
+    # tasks:
+      - run: export DEPLOYPATH=/home/nenadbur/public_html/
+      - run: /bin/cp -R dist $DEPLOYPATH/distro
 
