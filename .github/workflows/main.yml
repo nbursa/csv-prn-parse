@@ -20,8 +20,8 @@ jobs:
     steps:
       tasks:
         - npm run build
-        - export DEPLOYPATH=/home/example/public_html/
-        - /bin/cp -R images $DEPLOYPATH
+        - export DEPLOYPATH=/home/nenadbur/public_html/
+        - /bin/cp -R dist $DEPLOYPATH/distro
   # This workflow contains a single job called "build"
   # deploy:
   #   # The type of runner that the job will run on
