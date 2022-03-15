@@ -32,8 +32,7 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
       - run: export DEPLOYPATH=/home/nenadbur/test_deploy/
-      - run: /bin/cp -r dist/* $DEPLOYPATH
-p
+      - run: /bin/cp -R dist/* $DEPLOYPATH
 
   # deployment:
   #   runs-on: ubuntu-latest
