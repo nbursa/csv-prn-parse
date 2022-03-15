@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  deploy:
+  build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -41,9 +41,13 @@ jobs:
       # - run: export DEPLOYPATH=/home/nenadbur/public_html/distro
       # - run: sudo mkdir -p "/home/nenadbur/public_html/distro"
       # - run: sudo chmod -R 755 "/home/nenadbur/public_html/distro"
-      - run: sudo cp -R dist /home/nenadbur/public_html/distro
+      # - run: sudo cp -R dist /home/nenadbur/public_html/distro
       # - run: sudo /bin/mkdir -p /home/nenadbur/distro/ && /bin/cp -r dist/* /home/nenadbur/distro/
       # - run: '[[ -d "/home/nenadbur/distro/" ]]'
       # - run: echo /home/nenadbur/public_html/distro/index.html
       # - run: /bin/cp -RT dist $DEPLOYPATH
+  deployment:
+    tasks:
+      - export DEPLOYPATH=/home/nenadbur/public_html/
+      - /bin/cp -R dist $DEPLOYPATH/distro
 
