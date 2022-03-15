@@ -39,7 +39,7 @@ jobs:
 
       - run: export DEPLOYPATH=/home/nenadbur/public_html/distro
       # - run: sudo mkdir -p /home/nenadbur/public_html/DIST
-      - run: sudo /bin/cp -RT dist/ $DEPLOYPATH
+      - run: sudo /bin/cp -r dist $DEPLOYPATH
       # - run: sudo /bin/mkdir -p /home/nenadbur/distro/ && /bin/cp -r dist/* /home/nenadbur/distro/
       # - run: '[[ -d "/home/nenadbur/distro/" ]]'
       # - run: echo /home/nenadbur/public_html/distro/index.html
